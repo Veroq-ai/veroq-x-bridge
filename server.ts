@@ -320,7 +320,12 @@ COST: 1 X API search + 1 optional VeroQ entity call.`,
   },
   async ({ topic, max_posts, include_veroq_sentiment }) => {
     // Search X
-    const posts = await searchXPosts(topic, max_posts);
+    let posts: XPost[];
+    try {
+      posts = await searchXPosts(topic, max_posts);
+    } catch (err: unknown) {
+      return text(`X API error searching "${topic}": ${err instanceof Error ? err.message : String(err)}`);
+    }
     if (posts.length === 0) return text(`No recent X posts found for "${topic}".`);
 
     // Analyze sentiment per post
