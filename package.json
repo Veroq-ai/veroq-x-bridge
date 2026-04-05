@@ -1,0 +1,40 @@
+{
+  "name": "@veroq/x-bridge",
+  "version": "1.0.0",
+  "description": "MCP bridge — verify X posts, get social sentiment, fact-check trending claims",
+  "type": "module",
+  "main": "./dist/server.js",
+  "bin": {
+    "veroq-x-bridge": "./dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "node --import tsx server.ts"
+  },
+  "keywords": [
+    "mcp",
+    "x-api",
+    "twitter",
+    "veroq",
+    "shield",
+    "fact-check",
+    "sentiment",
+    "ai-agents"
+  ],
+  "author": "VeroQ <hello@veroq.ai>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veroq-ai/veroq-x-bridge"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
